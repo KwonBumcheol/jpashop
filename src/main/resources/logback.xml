@@ -10,7 +10,7 @@
 
     </appender>
 
-    <root level="INFO"> // DEBUG -> INFO
+    <root level="DEBUG"> // DEBUG -> INFO
 
         <appender-ref ref="STDOUT" />
 
