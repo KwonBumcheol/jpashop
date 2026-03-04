@@ -1,19 +1,19 @@
 <configuration>
 
+    <!-- Spring Boot's default variables + color converters (%clr, etc.) -->
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-
         <encoder>
-
-            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} -%kvp- %msg%n</pattern>
-
+            <pattern>
+                %clr(%d{HH:mm:ss.SSS}){faint} %clr([%thread]){faint} %clr(%-5level) %clr(%logger{36}){cyan} %clr(-){faint} %kvp %msg%n%wEx
+            </pattern>
         </encoder>
-
     </appender>
 
-    <root level="DEBUG"> // DEBUG -> INFO
-
-        <appender-ref ref="STDOUT" />
-
+    <!-- Change level to INFO if DEBUG is too noisy -->
+    <root level="DEBUG">
+        <appender-ref ref="STDOUT"/>
     </root>
 
 </configuration>
