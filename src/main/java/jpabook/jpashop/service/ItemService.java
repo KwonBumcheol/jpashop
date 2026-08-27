@@ -20,6 +20,15 @@ public class ItemService {
         itemRepository.save(item);
     }
 
+    // 준영속 엔티티 수정 방법 1.변경 감지 기능
+    @Transactional
+    public void updateItem(Long itemId, String name, int price, int stockQuantity) {
+        Item findItem = itemRepository.findOne(itemId);
+        findItem.setName(name);
+        findItem.setPrice(price);
+        findItem.setStockQuantity(stockQuantity);
+    }
+
     public List<Item> findItems() {
         return itemRepository.findAll();
     }
